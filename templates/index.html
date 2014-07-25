@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sean's Air Conditioner</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome, my beautiful friend</h1>
+            <img id='ac' class="img-rounded" src={{ url_for('static', filename='test.jpg') +'?'|safe + rand_string }}>
+            <br> <br>
+            <form action='/take_photo' method='POST'>
+                <button type="submit" class="btn btn-success btn-lg"> Take photo </button>
+            </form>
+            <br>
+            <div class="row">
+                <div class="col-md-2">
+                <form action='/send_command' method='POST'>
+                    <button type="submit" class="btn btn-primary btn-lg"> Send command </button>
+                </div>
+                <div class="col-md-2">
+                    <input type="radio" name="command" value="p" checked> power </input> <br>
+                    <input type="radio" name="command" value="u"> temperature up </input> <br>
+                    <input type="radio" name="command" value="d"> temperature down </input> <br>
+                    <input type="radio" name="command" value="l"> fan slower </input> <br>
+                    <input type="radio" name="command" value="r"> fan faster </input> <br>
+                    <input type="radio" name="command" value="c"> cool </input> <br>
+                    <input type="radio" name="command" value="e"> energy saver </input> <br>
+                    <input type="radio" name="command" value="f"> fan only </input> <br>
+                </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
