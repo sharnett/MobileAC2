@@ -46,6 +46,12 @@ def send_commands(toggle_power, temperature, fan, coolness):
 #    r = 1
     if toggle_power == 'on':
         remote.send_command(r, 'p')
+    if coolness == 'cool':
+        remote.send_command(r, 'c')
+    elif coolness == 'energy':
+        remote.send_command(r, 'r')
+    elif coolness == 'fan':
+        remote.send_command(r, 'f')
     if temperature < 0:
         for i in range(abs(temperature)):
             remote.send_command(r, 'd')
@@ -53,17 +59,11 @@ def send_commands(toggle_power, temperature, fan, coolness):
         for i in range(temperature):
             remote.send_command(r, 'u')
     if fan < 0:
-        for i in range(fan):
+        for i in range(abs(fan):
             remote.send_command(r, 'l')
     elif fan > 0:
         for i in range(fan):
             remote.send_command(r, 'r')
-    if coolness == 'cool':
-        remote.send_command(r, 'c')
-    elif coolness == 'energy':
-        remote.send_command(r, 'r')
-    elif coolness == 'fan':
-        remote.send_command(r, 'f')
 
 
 if __name__ == '__main__':
