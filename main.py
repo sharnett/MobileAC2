@@ -59,7 +59,7 @@ def send_commands(toggle_power, temperature, fan, coolness):
         for i in range(temperature):
             remote.send_command(r, 'u')
     if fan < 0:
-        for i in range(abs(fan):
+        for i in range(abs(fan)):
             remote.send_command(r, 'l')
     elif fan > 0:
         for i in range(fan):
