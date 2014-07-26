@@ -9,28 +9,60 @@
         <div class="container">
             <h1>Welcome, my beautiful friend</h1>
             <img id='ac' class="img-rounded" src={{ url_for('static', filename='test.jpg') +'?'|safe + rand_string }}>
-            <br> <br>
-            <form action='/take_photo' method='POST'>
-                <button type="submit" class="btn btn-success btn-lg"> Take photo </button>
-            </form>
-            <br>
+            <br> <br> <br>
             <div class="row">
                 <div class="col-md-2">
                 <form action='/send_command' method='POST'>
                     <button type="submit" class="btn btn-primary btn-lg"> Send command </button>
                 </div>
                 <div class="col-md-2">
-                    <input type="radio" name="command" value="p" checked> power </input> <br>
-                    <input type="radio" name="command" value="u"> temperature up </input> <br>
-                    <input type="radio" name="command" value="d"> temperature down </input> <br>
-                    <input type="radio" name="command" value="l"> fan slower </input> <br>
-                    <input type="radio" name="command" value="r"> fan faster </input> <br>
-                    <input type="radio" name="command" value="c"> cool </input> <br>
-                    <input type="radio" name="command" value="e"> energy saver </input> <br>
-                    <input type="radio" name="command" value="f"> fan only </input> <br>
+                    <div class="form-group">
+                        <label for="power"> toggle power </label>
+                        <input type="checkbox" name="power" class="form-control"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="temperature"> change temperature </label>
+                        <select name="temperature" class="form-control">
+                            <option value="-5"> -5 </option>
+                            <option value="-4"> -4 </option>
+                            <option value="-3"> -3 </option>
+                            <option value="-2"> -2 </option>
+                            <option value="-1"> -1 </option>
+                            <option value="0" selected> 0 </option>
+                            <option value="1"> +1 </option>
+                            <option value="2"> +2 </option>
+                            <option value="3"> +3 </option>
+                            <option value="4"> +4 </option>
+                            <option value="5"> +5 </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fan"> change fan speed </label>
+                        <select name="fan" class="form-control">
+                            <option value="-2"> -2 </option>
+                            <option value="-1"> -1 </option>
+                            <option value="0" selected> 0 </option>
+                            <option value="1"> +1 </option>
+                            <option value="2"> +2 </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="coolness"> change coolness </label>
+                        <select name="coolness" class="form-control">
+                            <option value="no" selected> no change </option>
+                            <option value="cool"> cool </option>
+                            <option value="energy"> energy saver </option>
+                            <option value="fan"> fan only </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"> password </label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
                 </form>
                 </div>
             </div>
+
         </div>
     </body>
 </html>
